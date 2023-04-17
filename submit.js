@@ -296,10 +296,10 @@
                 //생체-환경
                 //생체-사물
                 //사물-환경
-                var newA = calc_index(A, D, B, C, a, b, c);
-                var newB = calc_index(B, A, D, C, b, d, e);
-                var newC = calc_index(C, B, C, D, c, e, f);
-                var newD = calc_index(D, A, D, B, a, d, f);
+                var newA = calc_index(A, D, B, C, 1, 1, 1);
+                var newB = calc_index(B, A, D, C, 1, 1, 1);
+                var newC = calc_index(C, B, C, D, 1, 1, 1);
+                var newD = calc_index(D, A, D, B, 1, 1, 1);
                 console.log(newA, newB, newC, newD);
                 var temp;
                 if (Math.max(newA, newB, newC, newD) >= 10){

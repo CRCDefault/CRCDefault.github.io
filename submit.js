@@ -97,20 +97,21 @@
             }
         }
         function scalingImpulse(impact_force) {
-            if (impact_force >= 0 && impact_force < 80) {
-                return (0); // negligible impact force
-            } else if (impact_force >= 80 && impact_force < 180) {
-                return (1); // minor impact force
-            } else if (impact_force >= 180 && impact_force < 380) {
-                return (2); // moderate impact force
-            } else if (impact_force >= 380 && impact_force < 580) {
-                return (3); // significant impact force
-            } else if (impact_force >= 580 && impact_force < 780) {
-                return (4); // severe impact force
-            } else {
-                return (5); // extremely dangerous impact force
-            }
-        }
+	    if (impact_force >= 0 && impact_force < 30) {
+		return (0); // negligible impact force
+	    } else if (impact_force >= 30 && impact_force < 100) {
+		return (1); // minor impact force
+	    } else if (impact_force >= 100 && impact_force < 300) {
+		return (2); // moderate impact force
+	    } else if (impact_force >= 300 && impact_force < 500) {
+		return (3); // significant impact force
+	    } else if (impact_force >= 500 && impact_force < 700) {
+		return (4); // severe impact force
+	    } else {
+		return (5); // extremely dangerous impact force
+	    }
+	}
+
         function scalingAcceleration(acceleration) {
             if (acceleration <= 0) {
                 return (0);
@@ -296,10 +297,10 @@
                 //생체-환경
                 //생체-사물
                 //사물-환경
-                var newA = calc_index(A, D, B, C, 1, 1, 1);
-                var newB = calc_index(B, A, D, C, 1, 1, 1);
-                var newC = calc_index(C, B, C, D, 1, 1, 1);
-                var newD = calc_index(D, A, D, B, 1, 1, 1);
+                var newA = calc_index(A, D, B, C, a, b, c);
+                var newB = calc_index(B, A, D, C, b, d, e);
+                var newC = calc_index(C, B, C, D, c, e, f);
+                var newD = calc_index(D, A, D, B, a, d, f);
                 console.log(newA, newB, newC, newD);
                 var temp;
                 if (Math.max(newA, newB, newC, newD) >= 10){
